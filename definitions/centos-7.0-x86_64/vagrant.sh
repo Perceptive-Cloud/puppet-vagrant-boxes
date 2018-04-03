@@ -1,18 +1,18 @@
-# Vagrant specific
-date > /etc/vagrant_box_build_time
+# centos specific
+date > /etc/centos_box_build_time
 
-# Add vagrant user
-/usr/sbin/groupadd vagrant
-/usr/sbin/useradd vagrant -g vagrant -G wheel
-echo "vagrant"|passwd --stdin vagrant
-echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/vagrant
-chmod 0440 /etc/sudoers.d/vagrant
+# Add centos user
+/usr/sbin/groupadd centos
+/usr/sbin/useradd centos -g centos -G wheel
+echo "centos"|passwd --stdin centos
+echo "centos        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers.d/centos
+chmod 0440 /etc/sudoers.d/centos
 
-# Installing vagrant keys
-mkdir -pm 700 /home/vagrant/.ssh
-wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/vagrant/.ssh/authorized_keys
-chmod 0600 /home/vagrant/.ssh/authorized_keys
-chown -R vagrant /home/vagrant/.ssh
+# Installing centos keys
+mkdir -pm 700 /home/centos/.ssh
+wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/centos/.ssh/authorized_keys
+chmod 0600 /home/centos/.ssh/authorized_keys
+chown -R centos /home/centos/.ssh
 
 # Customize the message of the day
-echo 'Welcome to your Vagrant-built virtual machine.' > /etc/motd
+echo 'Welcome to your centos-built virtual machine.' > /etc/motd
